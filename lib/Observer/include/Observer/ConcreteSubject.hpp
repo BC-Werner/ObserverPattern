@@ -6,7 +6,7 @@
 class ConcreteSubject : Subject {
 public:
     ConcreteSubject();
-    ~ConcreteSubject();
+    ~ConcreteSubject() override;
 
     void registerObserver();
     void deRegisterObserver();

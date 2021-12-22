@@ -4,7 +4,7 @@
 class ConcreteObserver : Observer {
 public:
     ConcreteObserver();
-    ~ConcreteObserver();
+    ~ConcreteObserver() override;
 
     void update();
 
