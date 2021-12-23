@@ -1,0 +1,5 @@
+IncludeDir = ./lib/Observer/include/Observer/
+IncludeSrc = ./lib/Observer/src/
+
+ObserverPattern: src/main.cpp $(IncludeSrc)ConcreteObserver.cpp $(IncludeSrc)ConcreteSubject.cpp $(IncludeSrc)Subject.cpp $(IncludeSrc)Observer.cpp
+	c++ -I$(IncludeDir) $? -o $@
