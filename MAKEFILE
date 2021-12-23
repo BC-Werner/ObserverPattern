@@ -1,11 +1,31 @@
+PROGRAM_NAME = ObserverPattern
+CC = c++
+CFLAGS = -I $(IncludeDir)
+
 IncludeDir = ./lib/Observer/include/Observer/
 IncludeSrc = ./lib/Observer/src/
 
-ObserverPattern: src/main.cpp $(IncludeSrc)ConcreteObserver.cpp $(IncludeSrc)ConcreteSubject.cpp $(IncludeSrc)Subject.cpp $(IncludeSrc)Observer.cpp
-	c++ -I $(IncludeDir) $? -o $@
+BUILD_DIR = builds/
+BUILD_OBJ = $(BUILD_DIR)obj/
+
+OBJECTS = ConcreteObserver.o ConcreteSubject.o Observer.o Subject.o
+OBJS = $(foreach obj, $(OBJECTS), $(BUILD_OBJ)$(obj))
+
+$(PROGRAM_NAME): $(BUILD_OBJ) $(OBJS) Main.o
+	$(CC) $(OBJS) $(BUILD_OBJ)Main.o -o $(BUILD_DIR)$@
 	
+Main.o: ./src/main.cpp
+	$(CC) $(CFLAGS) -c $< -o $(BUILD_OBJ)$@
+	
+$(BUILD_OBJ)%.o: $(IncludeSrc)%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+	
+$(BUILD_OBJ):
+	mkdir -p $@
+
 clean:
-	@rm ObserverPattern
+	@find . -type f -name '*.o' -print -delete
+	@find . -type f -name 'ObserverPattern' -print -delete
 	
-run: ObserverPattern
-	./ObserverPattern
+run: 
+	@$(BUILD_DIR)$(PROGRAM_NAME)
