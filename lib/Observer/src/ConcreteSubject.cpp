@@ -1,18 +1,29 @@
 #include "ConcreteSubject.hpp"
+#include <algorithm>
 
 ConcreteSubject::ConcreteSubject() { };
 ConcreteSubject::~ConcreteSubject() { };
 
-void ConcreteSubject::registerObserver() { };
-void ConcreteSubject::deRegisterObserver() { };
+void ConcreteSubject::registerObserver(Observer* observer)
+{
+    this->ListOfObservers.push_back(observer);
+};
+void ConcreteSubject::deRegisterObserver(Observer* observer)
+{
+    std::vector<Observer*>::iterator it = std::find(ListOfObservers.begin(), ListOfObservers.end(), observer);
+
+    if (it != ListOfObservers.end())
+    {
+        ListOfObservers.erase(it);
+    }
+};
 void ConcreteSubject::notifyObserver()
 {
     for (Observer* observer : ListOfObservers)
     {
-        observer->update();
+        observer->update(m_data);
     }
 };
-// Call with ConcreteSubject.setData(struct DataClass data = { 123, 3.14, B});
 void ConcreteSubject::setData(int i, float f, char c)
 {
     this->m_data.testInt = i;
