@@ -8,7 +8,7 @@ IncludeSrc = ./lib/Observer/src/
 BUILD_DIR = builds/
 BUILD_OBJ = $(BUILD_DIR)obj/
 
-OBJECTS = ConcreteObserver.o ConcreteSubject.o Observer.o Subject.o
+OBJECTS = ConcreteObserver.o ConcreteObserverB.o ConcreteSubject.o  Observer.o Subject.o
 OBJS = $(foreach obj, $(OBJECTS), $(BUILD_OBJ)$(obj))
 
 $(PROGRAM_NAME): $(BUILD_OBJ) $(OBJS) Main.o

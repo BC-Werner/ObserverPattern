@@ -11,6 +11,7 @@
  //#include <algorithm>
 #include "ConcreteSubject.hpp"
 #include "ConcreteObserver.hpp"
+#include "ConcreteObserverB.hpp"
 #include "DataClass.hpp"
 
 //using namespace std;
@@ -21,7 +22,7 @@ int main()
     ConcreteSubject subject;
 
     ConcreteObserver* obs0 = new ConcreteObserver(&subject);
-    ConcreteObserver* obs1 = new ConcreteObserver(&subject);
+    ConcreteObserverB* obs1 = new ConcreteObserverB(&subject);
 
     subject.setData(123, 3.14, 'B');
 
