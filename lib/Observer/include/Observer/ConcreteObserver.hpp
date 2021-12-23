@@ -3,7 +3,7 @@
 
 class ConcreteObserver : Observer {
 public:
-    ConcreteObserver();
+    ConcreteObserver(Subject* observableSubject);
     ~ConcreteObserver() override;
 
     void update();
