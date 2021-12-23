@@ -14,9 +14,9 @@ public:
     void deRegisterObserver(Observer* observer) override;
     void notifyObserver() override;
     void setData(int i, float f, char c);
-    void setData(struct DataClass data);
+    void setData(struct DataClass inputData);
 
 private:
-    struct DataClass m_data;
+    struct DataClass data;
     std::vector<Observer*> ListOfObservers;
 };

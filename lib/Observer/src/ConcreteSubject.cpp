@@ -35,19 +35,19 @@ void ConcreteSubject::notifyObserver()
 {
     for (Observer* observer : ListOfObservers)
     {
-        observer->update(m_data);
+        observer->update(data);
     }
 };
 void ConcreteSubject::setData(int i, float f, char c)
 {
-    this->m_data.testInt = i;
-    this->m_data.testFloat = f;
-    this->m_data.testChar = c;
+    this->data.testInt = i;
+    this->data.testFloat = f;
+    this->data.testChar = c;
     notifyObserver();
 }
 
-void ConcreteSubject::setData(struct DataClass data)
+void ConcreteSubject::setData(struct DataClass inputData)
 {
-    this->m_data = data;
+    this->data = data;
     notifyObserver();
 }

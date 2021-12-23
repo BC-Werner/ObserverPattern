@@ -11,6 +11,6 @@ public:
     void update(struct DataClass data) override;
 
 private:
-    struct DataClass m_data;
-    Subject* _concreteSubject = nullptr;
+    struct DataClass data;
+    Subject* concreteSubject = nullptr;
 };
