@@ -48,6 +48,6 @@ void ConcreteSubject::setData(int i, float f, char c)
 
 void ConcreteSubject::setData(struct DataClass inputData)
 {
-    this->data = data;
+    this->data = inputData;
     notifyObserver();
 }
