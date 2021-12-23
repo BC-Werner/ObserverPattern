@@ -11,7 +11,11 @@ ConcreteObserver::~ConcreteObserver() { };
 void ConcreteObserver::update(struct DataClass data)
 {
     this->data = data;
+    this->display();
+};
 
+void ConcreteObserver::display()
+{
     std::cout
         << "Data: { "
         << data.testInt
@@ -20,4 +24,4 @@ void ConcreteObserver::update(struct DataClass data)
         << ", "
         << data.testChar
         << " }\n";
-};
+}
