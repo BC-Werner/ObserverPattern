@@ -2,7 +2,15 @@
 #include <algorithm>
 
 ConcreteSubject::ConcreteSubject() { };
-ConcreteSubject::~ConcreteSubject() { };
+ConcreteSubject::~ConcreteSubject()
+{
+    for (Observer* obs : this->ListOfObservers)
+    {
+        delete obs;
+    }
+
+    this->ListOfObservers.clear();
+};
 
 void ConcreteSubject::registerObserver(Observer* observer)
 {
@@ -10,10 +18,16 @@ void ConcreteSubject::registerObserver(Observer* observer)
 };
 void ConcreteSubject::deRegisterObserver(Observer* observer)
 {
-    std::vector<Observer*>::iterator it = std::find(ListOfObservers.begin(), ListOfObservers.end(), observer);
+    std::vector<Observer*>::iterator it =
+        std::find(
+            ListOfObservers.begin(),
+            ListOfObservers.end(),
+            observer
+        );
 
     if (it != ListOfObservers.end())
     {
+        delete* it;
         ListOfObservers.erase(it);
     }
 };
