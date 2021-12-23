@@ -3,7 +3,7 @@
 #include "Subject.hpp"
 #include "DataClass.hpp"
 
-class ConcreteObserver : Observer {
+class ConcreteObserver : public Observer {
 public:
     ConcreteObserver(Subject* observableSubject);
     ~ConcreteObserver() override;

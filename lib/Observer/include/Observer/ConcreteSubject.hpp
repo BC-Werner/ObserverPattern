@@ -5,7 +5,7 @@
 
 #include <vector>
 
-class ConcreteSubject : Subject {
+class ConcreteSubject : public Subject {
 public:
     ConcreteSubject();
     ~ConcreteSubject() override;

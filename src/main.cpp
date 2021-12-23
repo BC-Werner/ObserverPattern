@@ -20,12 +20,12 @@ int main()
 
     ConcreteSubject subject;
 
-    ConcreteObserver* obs0 = new ConcreteObserver((Subject*)&subject);
-    ConcreteObserver* obs1 = new ConcreteObserver((Subject*)&subject);
+    ConcreteObserver* obs0 = new ConcreteObserver(&subject);
+    ConcreteObserver* obs1 = new ConcreteObserver(&subject);
 
     subject.setData(123, 3.14, 'B');
 
-    subject.deRegisterObserver((Observer*)obs1);
+    subject.deRegisterObserver(obs1);
 
     subject.setData(DataClass{ 456, 5.34, 'A' });
 
