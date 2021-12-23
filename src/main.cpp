@@ -20,6 +20,8 @@ int main()
 
     ConcreteSubject subject;
 
+    ConcreteObserver obs((Subject*)&subject);
+
     subject.setData(123, 3.14, 'B');
     subject.setData(DataClass{ 456, 5.34, 'A' });
 
