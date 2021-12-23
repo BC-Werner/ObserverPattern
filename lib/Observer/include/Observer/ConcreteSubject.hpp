@@ -10,9 +10,9 @@ public:
     ConcreteSubject();
     ~ConcreteSubject() override;
 
-    void registerObserver(Observer* observer);
-    void deRegisterObserver(Observer* observer);
-    void notifyObserver();
+    void registerObserver(Observer* observer) override;
+    void deRegisterObserver(Observer* observer) override;
+    void notifyObserver() override;
     void setData(int i, float f, char c);
     void setData(struct DataClass data);
 

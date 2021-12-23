@@ -8,7 +8,7 @@ public:
     ConcreteObserver(Subject* observableSubject);
     ~ConcreteObserver() override;
 
-    void update(struct DataClass data);
+    void update(struct DataClass data) override;
 
 private:
     struct DataClass m_data;
