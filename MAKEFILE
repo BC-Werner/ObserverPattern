@@ -25,7 +25,7 @@ $(BUILD_OBJ):
 
 clean:
 	@find . -type f -name '*.o' -print -delete
-	@find . -type f -name 'ObserverPattern' -print -delete
+	@find . -type f -name '$(PROGRAM_NAME)' -print -delete
 	
 run: 
 	@$(BUILD_DIR)$(PROGRAM_NAME)
