@@ -12,10 +12,17 @@ ConcreteSubject::~ConcreteSubject()
     this->ListOfObservers.clear();
 };
 
+/*
+ * Push an observer into the list of obsrvers, that will be updated when state changes.
+ */
 void ConcreteSubject::registerObserver(Observer* observer)
 {
     this->ListOfObservers.push_back(observer);
 };
+
+/*
+ * Push an observer into the list of obsrvers, that will be updated when state changes.
+ */
 void ConcreteSubject::deRegisterObserver(Observer* observer)
 {
     std::vector<Observer*>::iterator it =
@@ -31,6 +38,10 @@ void ConcreteSubject::deRegisterObserver(Observer* observer)
         ListOfObservers.erase(it);
     }
 };
+
+/*
+ * Push an observer into the list of obsrvers, that will be updated when state changes.
+ */
 void ConcreteSubject::notifyObserver()
 {
     for (Observer* observer : ListOfObservers)
@@ -38,6 +49,10 @@ void ConcreteSubject::notifyObserver()
         observer->update(data);
     }
 };
+
+/*
+ * Set the data to be pushed to the observers
+ */
 void ConcreteSubject::setData(int i, float f, char c)
 {
     this->data.testInt = i;
@@ -46,6 +61,9 @@ void ConcreteSubject::setData(int i, float f, char c)
     notifyObserver();
 }
 
+/*
+ * Set the data to be pushed to the observers with a DataClass struct
+ */
 void ConcreteSubject::setData(struct DataClass inputData)
 {
     this->data = inputData;
